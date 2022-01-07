@@ -84,7 +84,7 @@ class Form extends Component {
           <option value="muito raro">Muito Raro</option>
         </select>
         <label htmlFor="check-super">
-          Super Trunfo
+          Super Trunfo:
           <input
             id="check-super"
             type="checkbox"
