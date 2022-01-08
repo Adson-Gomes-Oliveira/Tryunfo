@@ -1,12 +1,14 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import './App.css';
 
 class App extends React.Component {
   constructor() {
     super();
 
     this.handleInput = this.handleInput.bind(this);
+    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
 
     this.state = {
       nameCard: '',
@@ -17,6 +19,7 @@ class App extends React.Component {
       attr3: '',
       rarity: '',
       superTrunfo: false,
+      isSaveButtonDisabled: true,
     };
   }
 
@@ -28,11 +31,14 @@ class App extends React.Component {
     this.setState({ [id]: typeOfValue });
   }
 
+  onSaveButtonClick() {
+  }
+
   render() {
     const { nameCard, description,
       img, attr1,
       attr2, attr3,
-      rarity, superTrunfo } = this.state;
+      rarity, superTrunfo, isSaveButtonDisabled } = this.state;
 
     return (
       <div>
@@ -47,6 +53,8 @@ class App extends React.Component {
           cardRare={ rarity }
           cardTrunfo={ superTrunfo }
           onInputChange={ this.handleInput }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
           cardName={ nameCard }
