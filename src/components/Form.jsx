@@ -16,11 +16,12 @@ class Form extends Component {
         <label htmlFor="name">
           Digite o nome da sua carta:
           <input
-            id="name"
+            id="nameCard"
             type="text"
             data-testid="name-input"
             value={ cardName }
             onChange={ onInputChange }
+            autoComplete="off"
           />
         </label>
         <label htmlFor="description">
@@ -75,6 +76,7 @@ class Form extends Component {
         </label>
         <h3>Selecione a raridade da carta:</h3>
         <select
+          id="rarity"
           data-testid="rare-input"
           value={ cardRare }
           onChange={ onInputChange }
@@ -83,10 +85,10 @@ class Form extends Component {
           <option value="raro">Raro</option>
           <option value="muito raro">Muito Raro</option>
         </select>
-        <label htmlFor="check-super">
+        <label htmlFor="superTrunfo">
           Super Trunfo:
           <input
-            id="check-super"
+            id="superTrunfo"
             type="checkbox"
             data-testid="trunfo-input"
             checked={ cardTrunfo }
@@ -106,17 +108,17 @@ class Form extends Component {
   }
 }
 
-// Form.propTypes = { cardName: PropTypes.string.isRequired,
-//   cardDescription: PropTypes.string.isRequired,
-//   cardAttr1: PropTypes.string.isRequired,
-//   cardAttr2: PropTypes.string.isRequired,
-//   cardAttr3: PropTypes.string.isRequired,
-//   cardImage: PropTypes.string.isRequired,
-//   cardRare: PropTypes.string.isRequired,
-//   cardTrunfo: PropTypes.bool.isRequired,
-//   // hasTrunfo: PropTypes.bool.isRequired,
-//   isSaveButtonDisabled: PropTypes.bool.isRequired,
-//   onInputChange: PropTypes.func.isRequired,
-//   onSaveButtonClick: PropTypes.func.isRequired };
+Form.propTypes = { cardName: PropTypes.string.isRequired,
+  cardDescription: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.string.isRequired,
+  cardAttr2: PropTypes.string.isRequired,
+  cardAttr3: PropTypes.string.isRequired,
+  cardImage: PropTypes.string.isRequired,
+  cardRare: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
+  // hasTrunfo: PropTypes.bool.isRequired,
+  isSaveButtonDisabled: PropTypes.bool.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  onSaveButtonClick: PropTypes.func.isRequired };
 
 export default Form;
