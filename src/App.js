@@ -106,9 +106,24 @@ class App extends React.Component {
     }
   }
 
+  onDeleteButtonClick = (event) => {
+    const { cardsSaved } = this.state;
+    cardsSaved.forEach((card) => {
+      if (card.name === event.target.id) {
+        if (card.trunfo === true) {
+          this.setState({ alreadyTrunfo: false });
+        }
+
+        const deleting = cardsSaved.filter((cardS) => cardS.name !== event.target.id);
+        this.setState({ cardsSaved: deleting });
+      }
+    });
+  }
+
   render() {
     const { nameCard, description, img, attr1, attr2, attr3,
       rarity, superTrunfo, isSaveButtonDisabled, alreadyTrunfo, cardsSaved } = this.state;
+    const deleteTrigger = true;
     const cardList = cardsSaved.map((card) => (
       <li key={ card.name }>
         <Card
@@ -120,6 +135,8 @@ class App extends React.Component {
           cardAttr3={ card.attribute_03 }
           cardRare={ card.rarity }
           cardTrunfo={ card.trunfo }
+          deleteButton={ deleteTrigger }
+          onDeleteButtonClick={ this.onDeleteButtonClick }
         />
       </li>));
     return (
@@ -148,6 +165,8 @@ class App extends React.Component {
           cardAttr3={ attr3 }
           cardRare={ rarity }
           cardTrunfo={ superTrunfo }
+          deleteButton={ false }
+          onDeleteButtonClick={ () => {} }
         />
         <ul>
           {cardList}
