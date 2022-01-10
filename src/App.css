@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -9,6 +9,6 @@ div {
 }
 
 h1 {
-  padding: 15px 0;
   align-self: center;
+  padding: 15px 0;
 }
