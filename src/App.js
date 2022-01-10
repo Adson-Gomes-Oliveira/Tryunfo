@@ -56,14 +56,17 @@ class App extends React.Component {
     const totalAttr = 210;
     const { attr1, attr2, attr3 } = this.state;
     const stateList = Object.values(this.state);
+    console.log(stateList);
 
     if (!stateList.includes('')
     && this.validateAttribute(attr1) === true
     && this.validateAttribute(attr2) === true
     && this.validateAttribute(attr3) === true
     && this.validateFullStrenght(attr1, attr2, attr3, totalAttr) === true) {
-      this.setState({ isSaveButtonDisabled: false });
+      return this.setState({ isSaveButtonDisabled: false });
     }
+
+    this.setState({ isSaveButtonDisabled: true });
   }
 
   onSaveButtonClick = (event) => {
